@@ -4,7 +4,7 @@
 * string[0] 배열식으로 접근 가능
 * ```string.compare(string) ```:: abc 선후 관계 파악 가능
 * 문자 to int
-   * string to int: ```toi(string)```
+   * string to int: ```atoi(string)```
    * char to int: ``` int (char) ```
 * int to 문자
     * ``` to_string(int) ``` : 10 -> 10
