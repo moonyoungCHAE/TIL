@@ -19,6 +19,7 @@
 
 [Iterator 구현](https://m.blog.naver.com/PostView.nhn?blogId=writer0713&logNo=220877874725&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
 
+```
 public interface Iterator<E> { 
 
 ​	boolean hasNext(); 
@@ -42,8 +43,10 @@ public interface Iterator<E> {
 ​	} 
 
 }
+```
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e5a3fe64-c90c-4bad-b272-68a3ed8042c8/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e5a3fe64-c90c-4bad-b272-68a3ed8042c8/Untitled.png)
+![Untitled (3)](https://user-images.githubusercontent.com/37133536/77233176-1ad5e980-6be9-11ea-93f6-53c77b06b9cc.png)
+
 
 * Iterable, Collection, List 모두 `iterator()` 함수를 선언
 
