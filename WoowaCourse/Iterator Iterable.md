@@ -9,7 +9,7 @@
 - Interface
 
   - Collection에서 제공하는 iterator() 메소드를 통해서만 Iterator 객체를 전달 받을 수 있다.
-  - 이 때, Iterator 객체는 컬렉션 객체의 기능을 버리고 **반복을 위한 기능만 남겨놓은 새로운 객체 **
+  - 이 때, Iterator 객체는 컬렉션 객체의 기능을 버리고 **반복을 위한 기능만 남겨놓은 새로운 객체**
 
   
 
@@ -120,12 +120,21 @@ public interface Iterator<E> {
 
     Iterator thread-safe하지 않은 클래스에서 제공
 
-  Enumeration<Double> doubleE = doubleVector.elements(); while(doubleE.hasMoreElements()) { doubleE.nextElement(); }
+```
+  Enumeration<Double> doubleE = doubleVector.elements();
+  while(doubleE.hasMoreElements()) { 
+    doubleE.nextElement();
+  }
 
+```
 - JDK 1.5부터 추가된 Enhanced for 문을 사용하도록 권장하고 있다.
 
-  // Enhanced for문 for (String name : names) { // do something }
-
+```
+  // Enhanced for문 == for each
+  for (String name : names) { 
+    // do something
+  }
+```
 ------
 
 ### Iterable
