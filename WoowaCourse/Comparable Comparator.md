@@ -12,6 +12,8 @@ Comparable: 기본적으로 적용되는 정렬 기준
   - 관습적으로 -1, 0, 1을 쓰지만 규칙은 아니다.
     - 단, a - b의 차이가 해당 data type의 범위 안에 드는지 확인할 것
   - `compareTo` / `isBiggerThan isSmallerThan` 동시에 구현하는 것도 방법이다.
+  - enum: 기본적으로 implements Comparable & compareTo 구현
+    - 비교 기준은 ```ordinal()``` : enum 저장된 순서 (=index)
 
   
 
