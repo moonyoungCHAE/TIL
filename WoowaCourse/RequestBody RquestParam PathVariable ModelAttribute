@@ -1,0 +1,63 @@
+### Reqeust Body
+
+- HTTP 요청의 Body 부분을 그대로 변수에 넣는다.
+- content type: application/json
+    - json, xml와 같을 때 / 전체 데이터를 받아올 때 사용한다.
+
+### Request Param
+
+- Query String ⇒ 일반적으로 GET
+    - localhost/help/domain/get_req_domain?adm_hp=143&adm_nm=2222&admId=123
+    - **POST에서도 QueryString할 수 있지만, 일반적이지 않아 지양하는 것이 좋다.**
+    - GET 방식을 쓰면 url에 나오게 되고 POST를 사용하면 나오지않습니다.
+    - POST 방식이라도 주소자체에 쿼리스트링을 붙여서 보내면 주소창에 파라미터들이 노출이 됩니다.
+
+        ```java
+        action="/kdi/xxx.do?brandcode=JM&t=cat_items"
+        /*
+        	/kdi/xxx.do 로 이동했을 때
+        	localhost/kdi/xxx.do?brandcode=JM&t=cat_items  라고 표시됩니다.
+        */
+        ```
+
+    - `query string` 의 경우 URL파트에 포함됩니다.
+
+        따라서 방식이 `get`이 아닌 `post` , `put`에 사용하셔도 별다른 제약은 없습니다.
+
+        하지만 질문 주신것 처럼 파라메터 값이 중복될 경우 프레임워크 마다 구현이 조금씩 다를 수 있는 등 모호한 부분이 생길 수 있기 때문에 저는 최대한 사용하지 않습니다.
+
+    - If you really want to use @RequestParam, use a GET request instead and send your data via URL parameters.
+- POST에 Query Param 추가 시 Header 뒤에 전송된다.
+
+    ```java
+    POST /path/script.cgi HTTP/1.0
+    From: frog@jmarshall.com
+    User-Agent: HTTPTool/1.0
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 32
+
+    home=Cosby&favorite+flavor=flies
+    ```
+
+- 파라미터와 1:1 대응
+- content type: application/x-ww-form
+
+Path variable
+
+- 만약 어떤 resource를 식별하고 싶으면 Path Variable을 사용
+- db에 있는 내용을 식별하는 변수 (해당 변수로 db에 접근해서 리소스 꺼내온다)
+
+Request Param
+
+- 정렬이나 필터링을 한다면 Query Parameter를 사용
+- db에 있는 내용 식별x
+
+### ModelAttribue
+
+- RequestBody에서 특정 Data만 받아올 때
+
+@ModelAttribute 어노테이션은 Parameter에 쓸 경우 받아오고자하는 데이터의 이름을 지정하여 해당 데이터만을 가져온다. 만약 당신이 { name : '뼈발자', comment : '인생은 최건우처럼' } 이라고 ajax-data에 넣었다고 치고 컨트롤러에 @ModelAttribute('comment') String comment 라고 하면 comment속엔 '인생은 최건우처럼'만을 받아온다.
+
+결론 : @ModelAttribute는 받아오는 데이터를 '지정'한다.
+
+출처: [https://sticky32.tistory.com/entry/SpringMVC-ModelAttribute-RequestBody-에-대해서](https://sticky32.tistory.com/entry/SpringMVC-ModelAttribute-RequestBody-%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C)
